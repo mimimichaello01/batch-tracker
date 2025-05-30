@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "task-control"
+version = "0.1.0"
+description = "Контроль заданий на выпуск продукции"
+authors = ["mimimichaello <137781824+mimimichaello@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.115.12"
+uvicorn = {extras = ["standard"], version = "^0.34.2"}
+pydantic = "^2.11.5"
+sqlalchemy = "^2.0.41"
+alembic = "^1.16.1"
+asyncpg = "^0.30.0"
+psycopg2-binary = "^2.9.10"
+pydantic-settings = "^2.9.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
