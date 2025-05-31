@@ -3,10 +3,13 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from uuid import UUID
 
-from app.infra.db.repositories.interfaces.product_item_repository import AbstractProductItemRepository
-from app.domain.entities.product_item import ProductItemEntity
-from app.infra.db.models.models import ProductItemModel
-from app.infra.db.mappers.product_mapper import product_entity_to_orm, product_orm_to_entity
+from application.interfaces.product_item_repository import AbstractProductItemRepository
+from domain.entities.product_item import ProductItemEntity
+from infra.db.converters.product_mapper import product_entity_to_orm, product_orm_to_entity
+from infra.db.models.models import ProductItemModel
+
+
+
 
 
 
@@ -40,6 +43,3 @@ class ProductItemRepositoryImpl(AbstractProductItemRepository):
 
         self.db.add(model)
         await self.db.commit()
-
-
-

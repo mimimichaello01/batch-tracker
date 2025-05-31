@@ -1,14 +1,14 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from fastapi import Depends
 
-from app.infra.db.repositories.batch_repository_impl import BatchRepositoryImpl
-from app.infra.db.repositories.interfaces.batch_repository import (
-    AbstractBatchRepository,
-)
-from app.infra.db.repositories.interfaces.product_item_repository import AbstractProductItemRepository
-from app.infra.db.repositories.product_item_repository_impl import ProductItemRepositoryImpl
-from app.infra.db.session import get_db
-from app.use_cases.batch_use_cases import AddBatchProductUseCase, AggregateBatchProductsUseCase, CreateBatchUseCase, GetBatchByIdUseCase, GetBatchesByFilterUseCase, UpdateBatchUseCase
+from application.interfaces.batch_repository import AbstractBatchRepository
+from application.interfaces.product_item_repository import AbstractProductItemRepository
+from infra.db.repositories.batch_repository_impl import BatchRepositoryImpl
+from infra.db.repositories.product_item_repository_impl import ProductItemRepositoryImpl
+from infra.db.session import get_db
+from use_cases.batch_use_cases import AddBatchProductUseCase, AggregateBatchProductsUseCase, CreateBatchUseCase, GetBatchByIdUseCase, GetBatchesByFilterUseCase, UpdateBatchUseCase
+
+
 
 
 def get_batch_repo(session: AsyncSession = Depends(get_db)) -> BatchRepositoryImpl:

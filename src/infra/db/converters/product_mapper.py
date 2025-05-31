@@ -1,8 +1,10 @@
 import uuid
 
-from app.domain.entities.product_item import ProductItemEntity
-from app.infra.db.models.models import ProductItemModel
-from app.infra.schemas.product_item import ProductItemAddSchema
+from application.schemas.product_item import ProductItemAddSchema
+from domain.entities.product_item import ProductItemEntity
+from infra.db.models.models import ProductItemModel
+
+
 
 def product_orm_to_entity(product: ProductItemModel) -> ProductItemEntity:
     return ProductItemEntity(

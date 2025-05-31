@@ -5,14 +5,13 @@ from fastapi import HTTPException
 
 from typing import List, Optional
 from uuid import UUID
-from app.domain.entities.batch import BatchEntity
-from app.domain.entities.product_item import ProductItemEntity
-from app.infra.db.repositories.interfaces.batch_repository import (
-    AbstractBatchRepository,
-)
-from app.infra.db.repositories.interfaces.product_item_repository import AbstractProductItemRepository
-from app.infra.schemas.batch import UpdateBatchSchema
-from app.use_cases.exceptions.exceptions import BatchNotFoundException
+from application.interfaces.batch_repository import AbstractBatchRepository
+from application.interfaces.product_item_repository import AbstractProductItemRepository
+from application.schemas.batch import UpdateBatchSchema
+from domain.entities.batch import BatchEntity
+from domain.entities.product_item import ProductItemEntity
+
+from use_cases.exceptions.exceptions import BatchNotFoundException
 
 
 class CreateBatchUseCase:

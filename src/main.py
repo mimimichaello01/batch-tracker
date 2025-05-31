@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 
-from app.infra.api.batch_router import batch_router
+from presentation.api.batch_router import batch_router
+
+
 
 def create_app() -> FastAPI:
     app = FastAPI(
@@ -11,5 +13,3 @@ def create_app() -> FastAPI:
     app.include_router(batch_router)
 
     return app
-
-

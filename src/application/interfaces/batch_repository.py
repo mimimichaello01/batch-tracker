@@ -4,7 +4,9 @@ from typing import List, Optional
 
 from uuid import UUID
 
-from app.domain.entities.batch import BatchEntity
+from domain.entities.batch import BatchEntity
+
+
 
 
 class AbstractBatchRepository(ABC):

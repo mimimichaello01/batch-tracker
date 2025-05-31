@@ -2,12 +2,11 @@ from dataclasses import dataclass, field
 from datetime import datetime, date, timezone
 from typing import Optional
 
-from app.domain.entities.base import BaseEntity
-from app.domain.entities.product_item import ProductItemEntity
-from app.domain.exceptions.batch_exceptions import (
-    ClosedPartyException,
-    ProductIsAggregatedException,
-)
+from domain.entities.base import BaseEntity
+from domain.entities.product_item import ProductItemEntity
+from domain.exceptions.batch_exceptions import ClosedPartyException, ProductIsAggregatedException
+
+
 
 
 @dataclass

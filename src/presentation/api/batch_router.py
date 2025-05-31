@@ -3,32 +3,16 @@ from typing import List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from uuid import UUID
 
-from app.domain.entities.batch import BatchEntity
-from app.infra.api.dependencies import (
-    get_add_batch_product_use_case,
-    get_aggregate_batch_product_use_case,
-    get_batch_by_id_use_case,
-    get_batches_by_filter_use_case,
-    get_create_batch_use_case,
-    get_update_batch_use_case,
-)
-from app.infra.db.mappers.batch_mapper import batch_create_schema_to_entity
-from app.infra.db.mappers.product_mapper import product_add_schema_to_entity, product_orm_to_entity
-from app.infra.schemas.batch import (
-    BatchCreateSchema,
-    BatchResponseSchema,
-    UpdateBatchSchema,
-)
-from app.infra.schemas.product_item import AggregationInput, AggregationOutput, ProductItemAddSchema, ProductItemResponse
-from app.use_cases.batch_use_cases import (
-    AddBatchProductUseCase,
-    AggregateBatchProductsUseCase,
-    CreateBatchUseCase,
-    GetBatchByIdUseCase,
-    GetBatchesByFilterUseCase,
-    UpdateBatchUseCase,
-)
-from app.use_cases.exceptions.exceptions import BatchNotFoundException
+from application.schemas.batch import BatchCreateSchema, BatchResponseSchema, UpdateBatchSchema
+from application.schemas.product_item import AggregationInput, AggregationOutput, ProductItemAddSchema, ProductItemResponse
+from domain.entities.batch import BatchEntity
+from infra.db.converters.batch_mapper import batch_create_schema_to_entity
+from infra.db.converters.product_mapper import product_add_schema_to_entity
+from presentation.api.dependencies import get_add_batch_product_use_case, get_aggregate_batch_product_use_case, get_batch_by_id_use_case, get_batches_by_filter_use_case, get_create_batch_use_case, get_update_batch_use_case
+from use_cases.batch_use_cases import AddBatchProductUseCase, AggregateBatchProductsUseCase, CreateBatchUseCase, GetBatchByIdUseCase, GetBatchesByFilterUseCase, UpdateBatchUseCase
+from use_cases.exceptions.exceptions import BatchNotFoundException
+
+
 
 
 batch_router = APIRouter(prefix="/batches", tags=["Batches"])

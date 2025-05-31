@@ -4,12 +4,12 @@ from uuid import UUID
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.domain.entities.batch import BatchEntity
-from app.infra.db.mappers.batch_mapper import batch_entity_to_orm, batch_orm_to_entity
-from app.infra.db.models.models import BatchModel, ProductItemModel
-from app.infra.db.repositories.interfaces.batch_repository import (
-    AbstractBatchRepository,
-)
+from application.interfaces.batch_repository import AbstractBatchRepository
+from domain.entities.batch import BatchEntity
+from infra.db.converters.batch_mapper import batch_entity_to_orm, batch_orm_to_entity
+from infra.db.models.models import BatchModel, ProductItemModel
+
+
 
 
 class BatchRepositoryImpl(AbstractBatchRepository):
